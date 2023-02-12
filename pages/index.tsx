@@ -44,7 +44,7 @@ export default function Home() {
             <Image src={avatar} layout="fill" objectFit='cover' alt='object image'/>
           </div>
           <div className='text-center p-5'>
-            <h2 className='text-5xl py-2 text-teal-600 font-medium md:text-6xl'>Fariz Nur</h2>
+            <h2 className='text-5xl py-2 text-teal-600 font-medium md:text-6xl'>Fariz Nur Masyhuri</h2>
             <h3 className='text-2xl py-2 md-text-3xl dark:text-white'>Web & Android Developer</h3>
             <p className='text-md py-2 leading-8 text-gray-800 md:text-xl max-w-2xl mx-auto dark:text-gray-200'>
               Seorang pembuat aplikasi android dan website yang mempunyai pengalaman bekerja 
