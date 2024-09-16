@@ -67,11 +67,18 @@ import { SiPostgresql } from 'react-icons/si';
 
 const inter = Inter({ subsets: ['latin'] })
 
+// Tambahkan interface untuk tipe data selectedImage
+interface SelectedImageType {
+  images: StaticImageData[];
+  descriptionHeader: string;
+  description: string;
+}
+
 export default function Home() {
 
   const [darkMode, setDarkMode] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
-  const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedImage, setSelectedImage] = useState<SelectedImageType | null>(null);
   const [language, setLanguage] = useState('en'); // Ubah nilai default menjadi 'en'
   const [showLanguageDropdown, setShowLanguageDropdown] = useState(false);
 
