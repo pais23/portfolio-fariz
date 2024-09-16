@@ -64,6 +64,7 @@ import { IoLogoJavascript } from 'react-icons/io';
 import { FaGitAlt } from 'react-icons/fa';
 import { GrMysql } from 'react-icons/gr';
 import { SiPostgresql } from 'react-icons/si';
+import { StaticImageData } from 'next/image';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -79,7 +80,7 @@ export default function Home() {
   const [darkMode, setDarkMode] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState<SelectedImageType | null>(null);
-  const [language, setLanguage] = useState('en'); // Ubah nilai default menjadi 'en'
+  const [language, setLanguage] = useState<'id' | 'en'>('en');
   const [showLanguageDropdown, setShowLanguageDropdown] = useState(false);
 
   const projectImages = [
@@ -157,7 +158,7 @@ export default function Home() {
     setSelectedImage({
       images: projectImages[imageIndex],
       descriptionHeader: projectDescriptionHeaders[imageIndex],
-      description: projectDescriptions[language][imageIndex]
+      description: projectDescriptions[language as keyof typeof projectDescriptions][imageIndex]
     });
     setModalOpen(true);
   };
@@ -170,7 +171,7 @@ export default function Home() {
     setShowLanguageDropdown(!showLanguageDropdown);
   };
 
-  const changeLanguage = (lang) => {
+  const changeLanguage = (lang: 'id' | 'en') => {
     setLanguage(lang);
     setShowLanguageDropdown(false);
   };
@@ -212,7 +213,7 @@ export default function Home() {
   };
 
   // Fungsi helper untuk mendapatkan teks terjemahan
-  const t = (key) => translations[language][key];
+  const t = (key: keyof typeof translations[keyof typeof translations]) => translations[language][key];
 
   return (
     <div className={darkMode ? 'dark' : ''}>
@@ -337,7 +338,7 @@ export default function Home() {
                 <AiFillCloseCircle />
               </button>
               <div className="flex justify-center items-center flex-col overflow-y-auto" style={{ maxHeight: 'calc(90vh - 2rem)' }}>
-                <h3 className="text-center text-xl sm:text-2xl mt-4 mb-4 text-gray-800"><b>{selectedImage.descriptionHeader}</b></h3>
+                <h3 className="text-center text-xl sm:text-2xl mt-4 mb-4 text-gray-800"><b>{selectedImage?.descriptionHeader}</b></h3>
                 <Swiper
                   modules={[Pagination]}
                   spaceBetween={30}
@@ -345,7 +346,7 @@ export default function Home() {
                   pagination={{ clickable: true }}
                   className="w-full"
                 >
-                  {selectedImage.images.map((image, index) => (
+                  {selectedImage?.images.map((image, index) => (
                     <SwiperSlide key={index}>
                       <div className="max-h-[60vh] overflow-y-auto">
                         <Image 
@@ -360,7 +361,7 @@ export default function Home() {
                     </SwiperSlide>
                   ))}
                 </Swiper>
-                <p className="text-center mt-4 mb-4 text-sm sm:text-base text-gray-800">{selectedImage.description}</p>
+                <p className="text-center mt-4 mb-4 text-sm sm:text-base text-gray-800">{selectedImage?.description}</p>
               </div>
             </div>
           </div>
