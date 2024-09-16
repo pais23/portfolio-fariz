@@ -6,6 +6,8 @@ import { AiFillLinkedin, AiFillInstagram, AiFillGithub, AiFillCloseCircle} from 
 import Image from 'next/image';
 import Lottie from 'lottie-react';
 import codingAnimation from '../public/coding-animation.json';
+import handshakeAnimation from '../public/handshake-animation.json';
+import Typewriter from 'typewriter-effect';
 
 import pt2 from '../public/bijb/bijb.png';
 import pt22 from '../public/bijb/admin.png';
@@ -46,7 +48,7 @@ import pt10 from '../public/eroses/eroses1.png';
 import pt101 from '../public/eroses/eroses2.png';
 import pt102 from '../public/eroses/eroses3.png';
 import pt103 from '../public/eroses/eroses4.png';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -77,6 +79,7 @@ const [modalOpen, setModalOpen] = useState(false);
 const [selectedImage, setSelectedImage] = useState<SelectedImageType | null>(null);
 const [language, setLanguage] = useState<'id' | 'en'>('en');
 const [showLanguageDropdown, setShowLanguageDropdown] = useState(false);
+const [loading, setLoading] = useState(true);
 
 const projectImages = [
   [pt2, pt22, pt23],
@@ -184,6 +187,7 @@ const translations = {
     madeUsing: "Dibuat Menggunakan",
     androidApp: "Aplikasi Android",
     androidDescription: "Membuat aplikasi android yang elegan sesuai dengan yang anda butuhkan.",
+    preloadText: "Mengubah Ide Menjadi Kenyataan"
   },
   en: {
     title: "Fariz Nur Masyhuri's Portfolio",
@@ -200,12 +204,45 @@ const translations = {
     madeUsing: "Made Using",
     androidApp: "Android Application",
     androidDescription: "Creating elegant Android applications that meet your requirements.",
+    preloadText: "Turning Ideas into Reality"
   }
 };
 
 // Fungsi helper untuk mendapatkan teks terjemahan
 const t = (key: keyof typeof translations[keyof typeof translations]) => translations[language][key];
 
+useEffect(() => {
+  const timer = setTimeout(() => {
+    setLoading(false);
+  }, 3000);
+
+  return () => clearTimeout(timer);
+}, []);
+
+if (loading) {
+  return (
+    <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-white dark:bg-gray-900 z-50">
+      <div className="flex flex-col items-center px-4 text-center">
+        <div className="w-full max-w-[300px] sm:max-w-[400px] md:max-w-[500px]">
+          <Lottie animationData={handshakeAnimation} loop={true} />
+        </div>
+        <h1 className='text-2xl sm:text-3xl md:text-4xl lg:text-5xl py-2 text-teal-600 font-bold dark:text-teal-400 mt-4'>
+          <Typewriter
+            onInit={(typewriter) => {
+              typewriter
+                .typeString(t('preloadText'))
+                .start();
+            }}
+            options={{
+              delay: 50, // Mengurangi delay antar karakter
+              deleteSpeed: 20, // Mempercepat kecepatan penghapusan jika ada
+            }}
+          />
+        </h1>
+      </div>
+    </div>
+  );
+}
 return (
   <div className={darkMode ? 'dark' : ''}>
     <Head>
