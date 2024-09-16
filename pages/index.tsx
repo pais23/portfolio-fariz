@@ -5,13 +5,7 @@ import { BsFillMoonStarsFill, BsTranslate } from 'react-icons/bs';
 import { AiFillLinkedin, AiFillInstagram, AiFillGithub, AiFillCloseCircle} from "react-icons/ai";
 import Image from 'next/image';
 import avatar from '../public/my-avatar.png';
-import android from '../public/android.png';
-import website from '../public/website.png';
-import vector from '../public/vector.png';
 
-import pt1 from '../public/inventory/inventory1.jpg';
-import pt11 from '../public/inventory/inventory2.jpg';
-import pt12 from '../public/inventory/inventory3.png';
 import pt2 from '../public/bijb/bijb.png';
 import pt22 from '../public/bijb/admin.png';
 import pt23 from '../public/bijb/bijb3.png';
@@ -84,7 +78,6 @@ export default function Home() {
   const [showLanguageDropdown, setShowLanguageDropdown] = useState(false);
 
   const projectImages = [
-    [pt1, pt11, pt12],
     [pt2, pt22, pt23],
     [pt3, pt33, pt34, pt35, pt36],
     [pt4, pt44, pt45],
@@ -97,7 +90,6 @@ export default function Home() {
   ];
 
   const projectDescriptionHeaders = [
-    "E-ASSET",
     "TNDE",
     "CRMS",
     "E-BIDDING",
@@ -111,7 +103,6 @@ export default function Home() {
 
   const projectDescriptions = {
     id: [
-      "E-Asset: Aplikasi manajemen aset yang digunakan oleh TikomDik Disdik Jabar, dikembangkan dengan React JS, Laravel, dan PostgreSQL.",
       "TNDE: Sistem manajemen dokumen untuk Bandara Internasional Jawa Barat, dikembangkan dengan Laravel dan MySQL.",
       "CRMS (City Road Management System): Berkolaborasi dengan Kementerian Pekerjaan Umum dan Perumahan Rakyat, dibangun menggunakan CodeIgniter dan PostgreSQL.",
       "E-Procurement Application for PT. SUZUKI Indomobil: Dikembangkan menggunakan CodeIgniter dan MySQL.",
@@ -123,7 +114,6 @@ export default function Home() {
       "eRoses: Aplikasi yang digunakan di Malaysia, khususnya untuk Kementerian Dalam Negeri. Dibangun dengan ReactJS"
     ],
     en: [
-      "E-Asset: Asset management application used by TikomDik Disdik Jabar, developed with React JS, Laravel, and PostgreSQL.",
       "TNDE: Document management system for West Java International Airport, developed with Laravel and MySQL.",
       "CRMS (City Road Management System): Collaborated with the Ministry of Public Works and Housing, built using CodeIgniter and PostgreSQL.",
       "E-Procurement Application for PT. SUZUKI Indomobil: Developed using CodeIgniter and MySQL.",
@@ -180,11 +170,11 @@ export default function Home() {
   const translations = {
     id: {
       title: "Portofolio Fariz Nur Masyhuri",
-      resume: "Resume",
+      resume: "Download CV",
       webAndroidDev: "Fullstack Developer",
       introduction: "Saya seorang pengembang aplikasi berpengalaman yang bekerja sebagai Software Engineer, terampil dalam membuat kedua web dan aplikasi seluler. Saya memiliki pengalaman langsung dengan PHP, HTML5, Bootstrap, Tailwind, dan secara konsisten menggunakan kerangka kerja seperti ReactJS, NextJS, Laravel, dan CodeIgniter. saya sangat mudah beradaptasi, terbuka untuk pengembangan pribadi, bersedia ditempatkan dimana saja, dan bersemangat mempelajari hal-hal baru",
       mySkills: "Kemampuan Saya",
-      skillsDescription: "Selama saya bekerja selama 3 tahun, saya telah bekerja sama dengan beberapa instansi pemerintahan dan juga berkolaborasi dengan orang-orang yang berbakat dalam membuat website untuk penggunaan bisnis dan konsumen.",
+      skillsDescription: "Ini adalah beberapa keterampilan yang saya miliki untuk membangun aplikasi",
       offerServices: "Saya menawarkan layanan untuk membuat website dan juga aplikasi android.",
       portfolio: "Portofolio",
       portfolioDescription: "Berikut ini merupakan tampilan dari website dan aplikasi android yang sudah saya kerjakan.",
@@ -196,11 +186,11 @@ export default function Home() {
     },
     en: {
       title: "Fariz Nur Masyhuri's Portfolio",
-      resume: "Resume",
+      resume: "Download CV",
       webAndroidDev: "Fullstack Developer",
       introduction: "I am an experienced application developer working as a Software Engineer, skilled in creating both web and mobile applications. I have hands-on experience with PHP, HTML5, Bootstrap, Tailwind, and consistently use frameworks such as ReactJS, NextJS, Laravel, and CodeIgniter. I am highly adaptable, open to personal development, willing to be placed anywhere, and eager to learn new things",
       mySkills: "My Skills",
-      skillsDescription: "During my 3 years of work, I have collaborated with several government agencies and talented individuals in creating websites for business and consumer use.",
+      skillsDescription: "These are some of the skills I possess for building applications",
       offerServices: "I offer services to create websites and Android applications.",
       portfolio: "Portfolio",
       portfolioDescription: "Here are the displays of websites and Android applications that I have worked on.",
@@ -249,7 +239,7 @@ export default function Home() {
           </nav>
           <div className='flex flex-col md:flex-row items-center justify-between mt-10 sm:mt-20'>
             <div className='w-full md:w-1/2 flex justify-center mb-10 md:hidden'>
-              <div className='relative w-64 h-64 sm:w-80 sm:h-80 overflow-hidden'>
+              <div className='relative w-64 h-64 sm:w-80 sm:h-80 overflow-hidden rounded-full bg-gradient-to-r from-cyan-500 to-teal-500'>
                 <Image src={avatar} layout="fill" objectFit='cover' alt='profile picture' className='rounded-full'/>
               </div>
             </div>
@@ -266,7 +256,7 @@ export default function Home() {
               </div>
             </div>
             <div className='w-full md:w-1/2 hidden md:flex justify-center'>
-              <div className='relative w-64 h-64 sm:w-80 sm:h-80 overflow-hidden md:h-96 md:w-96'>
+              <div className='relative w-64 h-64 sm:w-80 sm:h-80 overflow-hidden md:h-96 md:w-96 rounded-full bg-gradient-to-r from-cyan-500 to-teal-500'>
                 <Image src={avatar} layout="fill" objectFit='cover' alt='profile picture' className='rounded-full'/>
               </div>
             </div>
