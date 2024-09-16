@@ -237,7 +237,7 @@ export default function Home() {
               <li>
                 <BsFillMoonStarsFill onClick={() => setDarkMode(!darkMode)} className='cursor-pointer text-2xl text-gray-800 dark:text-white hover:text-teal-600 dark:hover:text-teal-400 transition-colors'/>
               </li>
-              <li><a className='bg-gradient-to-r from-cyan-500 to-teal-500 text-white px-4 py-2 rounded-md hover:from-cyan-600 hover:to-teal-600 transition-all duration-300' href="https://drive.google.com/file/d/13ke3XaWL4E3dyc1g4tappk5zsbcO44Wy/view?usp=sharing" target="_blank">{t('resume')}</a></li>
+              <li><a className='bg-gradient-to-r from-cyan-500 to-teal-500 text-white px-4 py-2 rounded-md hover:from-cyan-600 hover:to-teal-600 transition-all duration-300' href="https://drive.google.com/file/d/13ke3XaWL4E3dyc1g4tappk5zsbcO44Wy/view?usp=sharing" target="_blank" rel="noreferrer">{t('resume')}</a></li>
             </ul>
           </nav>
           <div className='flex flex-col md:flex-row items-center justify-between mt-10 sm:mt-20'>
