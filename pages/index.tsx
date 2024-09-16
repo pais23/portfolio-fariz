@@ -80,6 +80,7 @@ const [selectedImage, setSelectedImage] = useState<SelectedImageType | null>(nul
 const [language, setLanguage] = useState<'id' | 'en'>('en');
 const [showLanguageDropdown, setShowLanguageDropdown] = useState(false);
 const [loading, setLoading] = useState(true);
+const [fadeOut, setFadeOut] = useState(false);
 
 const projectImages = [
   [pt2, pt22, pt23],
@@ -213,36 +214,15 @@ const t = (key: keyof typeof translations[keyof typeof translations]) => transla
 
 useEffect(() => {
   const timer = setTimeout(() => {
-    setLoading(false);
+    setFadeOut(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000); // Waktu untuk efek fade out
   }, 3000);
 
   return () => clearTimeout(timer);
 }, []);
 
-if (loading) {
-  return (
-    <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-white dark:bg-gray-900 z-50">
-      <div className="flex flex-col items-center px-4 text-center">
-        <div className="w-full max-w-[300px] sm:max-w-[400px] md:max-w-[500px]">
-          <Lottie animationData={handshakeAnimation} loop={true} />
-        </div>
-        <h1 className='text-2xl sm:text-3xl md:text-4xl lg:text-5xl py-2 text-teal-600 font-bold dark:text-teal-400 mt-4'>
-          <Typewriter
-            onInit={(typewriter) => {
-              typewriter
-                .typeString(t('preloadText'))
-                .start();
-            }}
-            options={{
-              delay: 50, // Mengurangi delay antar karakter
-              deleteSpeed: 20, // Mempercepat kecepatan penghapusan jika ada
-            }}
-          />
-        </h1>
-      </div>
-    </div>
-  );
-}
 return (
   <div className={darkMode ? 'dark' : ''}>
     <Head>
@@ -252,6 +232,29 @@ return (
       <link rel="icon" href="/favicon.ico" />
     </Head>
     <main className='bg-white dark:bg-gray-900 min-h-screen'> 
+      {loading && (
+        <div className={`fixed top-0 left-0 w-full h-full flex items-center justify-center bg-white dark:bg-gray-900 z-50 transition-opacity duration-1000 ${fadeOut ? 'opacity-0' : 'opacity-100'}`}>
+          <div className="flex flex-col items-center px-4 text-center">
+            <div className="w-full max-w-[300px] sm:max-w-[400px] md:max-w-[500px]">
+              <Lottie animationData={handshakeAnimation} loop={true} />
+            </div>
+            <h1 className='text-2xl sm:text-3xl md:text-4xl lg:text-5xl py-2 text-teal-600 font-bold dark:text-teal-400 mt-4'>
+              <Typewriter
+                onInit={(typewriter) => {
+                  typewriter
+                    .typeString(t('preloadText'))
+                    .start();
+                }}
+                options={{
+                  delay: 50,
+                  deleteSpeed: 20,
+                }}
+              />
+            </h1>
+          </div>
+        </div>
+      )}
+      
       {/* Section 1: Profil */}
       <section className="container mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-32">
         <nav className="mb-12 sm:mb-16 flex justify-end">
