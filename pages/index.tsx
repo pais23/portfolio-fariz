@@ -218,7 +218,7 @@ useEffect(() => {
     setTimeout(() => {
       setLoading(false);
     }, 1000); // Waktu untuk efek fade out
-  }, 3000);
+  }, 1200);
 
   return () => clearTimeout(timer);
 }, []);
@@ -246,7 +246,7 @@ return (
                     .start();
                 }}
                 options={{
-                  delay: 50,
+                  delay: 20,
                   deleteSpeed: 20,
                 }}
               />
