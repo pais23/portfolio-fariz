@@ -146,7 +146,7 @@ export default function Home() {
     // <SiNextdotjs key="nextjs" />,
   ];
 
-  const openModal = (imageIndex) => {
+  const openModal = (imageIndex: number) => {
     setSelectedImage({
       images: projectImages[imageIndex],
       descriptionHeader: projectDescriptionHeaders[imageIndex],
@@ -154,7 +154,6 @@ export default function Home() {
     });
     setModalOpen(true);
   };
-
   const closeModal = () => {
     setSelectedImage(null);
     setModalOpen(false);
