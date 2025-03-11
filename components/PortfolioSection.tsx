@@ -128,7 +128,6 @@ export default function PortfolioSection({
                         width={750} 
                         height={400} 
                         className='rounded-lg object-contain mx-auto'
-                        layout="responsive"
                       />
                     </div>
                   </SwiperSlide>
