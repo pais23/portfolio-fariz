@@ -38,7 +38,6 @@ export default function PortfolioSection({
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState<SelectedImageType | null>(null);
 
-  // Helper function to get translated text
   const t = (key: string) => translations[language][key];
 
   const projectIcons = [
