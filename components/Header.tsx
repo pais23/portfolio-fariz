@@ -131,7 +131,7 @@ export default function Header({ darkMode, setDarkMode, language, setLanguage, t
           {/* Resume Download CTA */}
           <a 
             className="hidden sm:inline-flex items-center justify-center px-4 py-2 rounded-lg text-sm font-semibold bg-gradient-to-r from-cyan-500 to-teal-500 text-white shadow-md shadow-teal-500/10 hover:shadow-teal-500/20 hover:scale-[1.02] transition-all duration-200" 
-            href="https://drive.google.com/file/d/13ke3XaWL4E3dyc1g4tappk5zsbcO44Wy/view?usp=sharing" 
+            href="https://drive.google.com/file/d/1XCdb8zcgdss_ixnzxpYyB7Fdbl0T_2Ex/view?usp=sharing" 
             target="_blank" 
             rel="noreferrer"
           >

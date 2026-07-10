@@ -39,7 +39,7 @@ export default function ProfileSection({ translations, language }: ProfileSectio
             {/* Call to Actions (CTA) */}
             <div className="mt-10 flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
               <a 
-                href="https://drive.google.com/file/d/13ke3XaWL4E3dyc1g4tappk5zsbcO44Wy/view?usp=sharing" 
+                href="https://drive.google.com/file/d/1XCdb8zcgdss_ixnzxpYyB7Fdbl0T_2Ex/view?usp=sharing" 
                 target="_blank" 
                 rel="noreferrer"
                 className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl text-base font-semibold bg-gradient-to-r from-cyan-500 to-teal-500 text-white shadow-lg shadow-teal-500/25 hover:shadow-teal-500/40 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200"
