@@ -59,9 +59,6 @@ export default function Header({ darkMode, setDarkMode, language, setLanguage, t
           <span className="text-xl font-bold bg-gradient-to-r from-cyan-500 to-teal-500 bg-clip-text text-transparent hover:opacity-80 transition-opacity">
             Fariz Nur Masyhuri
           </span>
-          <span className="hidden sm:inline-block text-[10px] uppercase tracking-wider bg-teal-100 dark:bg-teal-900/30 text-teal-800 dark:text-teal-300 px-2 py-0.5 rounded font-mono font-bold">
-            PRO
-          </span>
         </a>
 
         {/* Navigation Menu */}

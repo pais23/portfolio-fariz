@@ -99,6 +99,7 @@ export interface DetailedProject {
   mainImage: StaticImageData;
   images: StaticImageData[];
   iconKey: 'laravel' | 'codeigniter' | 'react' | 'flutter' | 'nextjs';
+  category?: 'web' | 'mobile';
 }
 
 export const detailedProjects: DetailedProject[] = [
@@ -292,7 +293,8 @@ export const detailedProjects: DetailedProject[] = [
     },
     mainImage: logoBiz,
     images: [pt7, pt71, pt72, pt73, pt74, pt75],
-    iconKey: "flutter"
+    iconKey: "flutter",
+    category: "mobile"
   },
   {
     id: "dbadjoean",
@@ -484,7 +486,8 @@ export const detailedProjects: DetailedProject[] = [
     },
     mainImage: logoWardah,
     images: [image_wardah1, image_wardah2, image_wardah3, image_wardah4, image_wardah5, image_wardah6, image_wardah7, image_wardah8],
-    iconKey: "react"
+    iconKey: "react",
+    category: "mobile"
   },
   {
     id: "portal",

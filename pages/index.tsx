@@ -29,6 +29,27 @@ export default function Home() {
   const t = (key: keyof typeof translations[keyof typeof translations]) => translations[language][key] || key;
 
   useEffect(() => {
+    // Initial theme detection
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      setDarkMode(savedTheme === 'dark');
+    } else {
+      const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      setDarkMode(systemPrefersDark);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (darkMode) {
+      document.documentElement.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
+    }
+  }, [darkMode]);
+
+  useEffect(() => {
     const timer = setTimeout(() => {
       setFadeOut(true);
       setTimeout(() => {

@@ -89,21 +89,158 @@ export default function PortfolioSection({ translations, language }: PortfolioSe
             {detailedProjects.map((project) => (
               <div 
                 key={project.id} 
-                className="bg-white dark:bg-gray-800 rounded-2xl shadow-sm hover:shadow-xl border border-gray-100 dark:border-gray-705 overflow-hidden transition-all duration-300 flex flex-col justify-between group h-full"
+                className="bg-white dark:bg-gray-800 rounded-2xl shadow-sm hover:shadow-xl border border-gray-100 dark:border-gray-750 overflow-hidden transition-all duration-300 flex flex-col justify-between group h-full"
               >
-                {/* Image Wrap */}
-                <div className="relative h-48 sm:h-56 w-full bg-gray-50 dark:bg-gray-900 flex items-center justify-center p-6 border-b border-gray-100 dark:border-gray-700/50">
-                  <Image 
-                    src={project.mainImage} 
-                    alt={`${project.name} logo`} 
-                    className="max-h-24 max-w-[80%] object-contain rounded-lg filter drop-shadow-md group-hover:scale-105 transition-transform duration-300"
-                    width={220} 
-                    height={110} 
-                    priority={false}
-                    referrerPolicy="no-referrer"
-                  />
+                {/* Image Wrap (Web vs Mobile Showcase Mockup) */}
+                <div className="relative h-56 sm:h-64 w-full bg-gray-50 dark:bg-gray-900 flex items-center justify-center border-b border-gray-100 dark:border-gray-700/50 overflow-hidden">
+                  {project.category === 'mobile' ? (
+                    /* Mobile Showcase Mockup */
+                    <div className="w-full h-full relative flex items-center justify-center p-3 overflow-hidden select-none">
+                      {/* Background Gradient */}
+                      <div className="absolute inset-0 bg-gradient-to-tr from-slate-100 to-teal-50/40 dark:from-slate-900/60 dark:to-cyan-950/20" />
+                      
+                      {/* Left Screen (Back) */}
+                      <div className="absolute w-[80px] sm:w-[90px] aspect-[9/18.5] bg-slate-950 dark:bg-black rounded-[14px] p-0.5 shadow-md border border-slate-800 dark:border-slate-900 overflow-hidden flex flex-col transition-all duration-500 transform -translate-x-12 rotate-[-12deg] z-0 opacity-80 group-hover:-translate-x-16 group-hover:rotate-[-18deg] group-hover:opacity-90">
+                        <div className="relative w-full h-full bg-white dark:bg-gray-950 rounded-[11px] overflow-hidden">
+                          <Image 
+                            src={project.images[1] || project.mainImage} 
+                            alt={`${project.name} mobile background 1`}
+                            fill
+                            sizes="(max-width: 768px) 50vw, 15vw"
+                            className="object-cover object-top"
+                            referrerPolicy="no-referrer"
+                          />
+                        </div>
+                      </div>
+
+                      {/* Right Screen (Back) */}
+                      <div className="absolute w-[80px] sm:w-[90px] aspect-[9/18.5] bg-slate-950 dark:bg-black rounded-[14px] p-0.5 shadow-md border border-slate-800 dark:border-slate-900 overflow-hidden flex flex-col transition-all duration-500 transform translate-x-12 rotate-[12deg] z-0 opacity-80 group-hover:translate-x-16 group-hover:rotate-[18deg] group-hover:opacity-90">
+                        <div className="relative w-full h-full bg-white dark:bg-gray-950 rounded-[11px] overflow-hidden">
+                          <Image 
+                            src={project.images[2] || project.images[0] || project.mainImage} 
+                            alt={`${project.name} mobile background 2`}
+                            fill
+                            sizes="(max-width: 768px) 50vw, 15vw"
+                            className="object-cover object-top"
+                            referrerPolicy="no-referrer"
+                          />
+                        </div>
+                      </div>
+
+                      {/* Center Screen (Front) */}
+                      <div className="relative w-[105px] sm:w-[115px] aspect-[9/18.5] bg-slate-950 dark:bg-black rounded-[18px] p-1 shadow-2xl border-[2px] border-slate-800 dark:border-slate-900 overflow-hidden flex flex-col z-10 transform transition-all duration-500 group-hover:scale-[1.06] group-hover:-translate-y-1.5">
+                        <div className="relative w-full h-full bg-white dark:bg-gray-950 rounded-[14px] overflow-hidden flex flex-col">
+                          {/* Notch / Speaker bar */}
+                          <div className="absolute top-1 left-1/2 -translate-x-1/2 w-8 h-2 bg-black rounded-full z-20" />
+                          <div className="relative flex-grow bg-gray-50 dark:bg-gray-900">
+                            <Image 
+                              src={project.images[0] || project.mainImage} 
+                              alt={`${project.name} mobile mockup`}
+                              fill
+                              sizes="(max-width: 768px) 50vw, 20vw"
+                              className="object-cover object-top"
+                              referrerPolicy="no-referrer"
+                            />
+                            <div className="absolute inset-0 bg-black/5 dark:bg-white/0 group-hover:bg-black/0 transition-colors duration-300" />
+                          </div>
+                          {/* Home indicator bar */}
+                          <div className="absolute bottom-1 left-1/2 -translate-x-1/2 w-10 h-0.5 bg-gray-300 dark:bg-gray-700 rounded-full z-20" />
+                        </div>
+                      </div>
+                    </div>
+                  ) : (
+                    /* Web Showcase Mockup */
+                    <div className="w-full h-full relative flex items-center justify-center p-3 overflow-hidden select-none">
+                      {/* Background Gradient */}
+                      <div className="absolute inset-0 bg-gradient-to-tr from-slate-100 to-indigo-50/40 dark:from-slate-900/60 dark:to-teal-950/20" />
+                      
+                      {/* Left Back Browser Window */}
+                      <div className="absolute w-[75%] h-[68%] bg-white dark:bg-gray-900 rounded-lg shadow-sm border border-gray-250/40 dark:border-gray-750/40 overflow-hidden flex flex-col transition-all duration-500 transform -translate-x-8 translate-y-3 -rotate-4 z-0 opacity-70 group-hover:-translate-x-12 group-hover:translate-y-5 group-hover:-rotate-8 group-hover:opacity-85">
+                        <div className="bg-gray-100/70 dark:bg-gray-800/70 px-1.5 py-0.5 flex items-center gap-1 border-b border-gray-200/40 dark:border-gray-700/40 shrink-0">
+                          <div className="flex gap-0.5 shrink-0">
+                            <span className="w-1 h-1 rounded-full bg-rose-300"></span>
+                            <span className="w-1 h-1 rounded-full bg-amber-300"></span>
+                            <span className="w-1 h-1 rounded-full bg-emerald-300"></span>
+                          </div>
+                        </div>
+                        <div className="relative flex-grow bg-gray-50 dark:bg-gray-950 overflow-hidden">
+                          <Image 
+                            src={project.images[1] || project.mainImage} 
+                            alt={`${project.name} back left`}
+                            fill
+                            sizes="(max-width: 768px) 70vw, 25vw"
+                            className="object-cover object-top"
+                            referrerPolicy="no-referrer"
+                          />
+                        </div>
+                      </div>
+
+                      {/* Right Back Browser Window */}
+                      <div className="absolute w-[75%] h-[68%] bg-white dark:bg-gray-900 rounded-lg shadow-sm border border-gray-250/40 dark:border-gray-750/40 overflow-hidden flex flex-col transition-all duration-500 transform translate-x-8 translate-y-3 rotate-4 z-0 opacity-70 group-hover:translate-x-12 group-hover:translate-y-5 group-hover:rotate-8 group-hover:opacity-85">
+                        <div className="bg-gray-100/70 dark:bg-gray-800/70 px-1.5 py-0.5 flex items-center gap-1 border-b border-gray-200/40 dark:border-gray-700/40 shrink-0">
+                          <div className="flex gap-0.5 shrink-0">
+                            <span className="w-1 h-1 rounded-full bg-rose-300"></span>
+                            <span className="w-1 h-1 rounded-full bg-amber-300"></span>
+                            <span className="w-1 h-1 rounded-full bg-emerald-300"></span>
+                          </div>
+                        </div>
+                        <div className="relative flex-grow bg-gray-50 dark:bg-gray-950 overflow-hidden">
+                          <Image 
+                            src={project.images[2] || project.images[0] || project.mainImage} 
+                            alt={`${project.name} back right`}
+                            fill
+                            sizes="(max-width: 768px) 70vw, 25vw"
+                            className="object-cover object-top"
+                            referrerPolicy="no-referrer"
+                          />
+                        </div>
+                      </div>
+
+                      {/* Center Front Browser Window */}
+                      <div className="relative w-[82%] h-[74%] bg-white dark:bg-gray-900 rounded-lg shadow-xl border border-gray-250/60 dark:border-gray-700/60 overflow-hidden flex flex-col z-10 transition-all duration-500 transform group-hover:scale-[1.04] group-hover:-translate-y-1">
+                        <div className="bg-gray-100/80 dark:bg-gray-800/80 px-2 py-1 flex items-center gap-1 border-b border-gray-200/50 dark:border-gray-700/50 shrink-0">
+                          <div className="flex gap-1 shrink-0">
+                            <span className="w-1.5 h-1.5 rounded-full bg-rose-400"></span>
+                            <span className="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
+                            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                          </div>
+                          <div className="bg-white/95 dark:bg-gray-950/95 text-[7px] font-mono text-gray-400 dark:text-gray-500 px-2 py-0.5 rounded flex-grow text-center truncate ml-3 mr-1 select-none border border-gray-100 dark:border-gray-800/50">
+                            https://{project.id}.fariz.dev
+                          </div>
+                        </div>
+                        <div className="relative flex-grow bg-gray-50 dark:bg-gray-950 overflow-hidden">
+                          <Image 
+                            src={project.images[0] || project.mainImage} 
+                            alt={`${project.name} mockup main`}
+                            fill
+                            sizes="(max-width: 768px) 80vw, 30vw"
+                            className="object-cover object-top"
+                            referrerPolicy="no-referrer"
+                          />
+                          <div className="absolute inset-0 bg-black/5 dark:bg-white/0 group-hover:bg-black/0 transition-colors duration-300" />
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Floating Brand Badge (Logo) */}
+                  <div className="absolute bottom-3 right-3 bg-white/95 dark:bg-gray-850/95 backdrop-blur-sm px-2.5 py-1 rounded-lg shadow-md border border-gray-150/60 dark:border-gray-750/60 flex items-center gap-1.5 z-10 select-none">
+                    <div className="relative w-4.5 h-4.5 rounded overflow-hidden flex-shrink-0 bg-white">
+                      <Image 
+                        src={project.mainImage} 
+                        alt="brand logo" 
+                        fill
+                        className="object-contain p-0.5"
+                        referrerPolicy="no-referrer"
+                      />
+                    </div>
+                    <span className="text-[9px] font-mono font-bold text-gray-700 dark:text-gray-300 tracking-wider uppercase">
+                      {project.name}
+                    </span>
+                  </div>
+
                   {/* Absolute technology badge */}
-                  <div className="absolute top-4 right-4 bg-white/90 dark:bg-gray-850/90 backdrop-blur-sm p-2.5 rounded-xl shadow-md border border-gray-100/50 dark:border-gray-700/50 flex items-center justify-center text-lg sm:text-xl">
+                  <div className="absolute top-3 left-3 bg-white/90 dark:bg-gray-850/90 backdrop-blur-sm p-2 rounded-lg shadow-md border border-gray-100/50 dark:border-gray-700/50 flex items-center justify-center text-base sm:text-lg">
                     {getProjectIcon(project.iconKey)}
                   </div>
                 </div>
@@ -192,17 +329,53 @@ export default function PortfolioSection({ translations, language }: PortfolioSe
                   >
                     {selectedProject.images.map((img, index) => (
                       <SwiperSlide key={index}>
-                        <div className="flex items-center justify-center min-h-[250px] sm:min-h-[350px]">
-                          <Image 
-                            src={img} 
-                            alt={`${selectedProject.name} slide ${index + 1}`} 
-                            width={800} 
-                            height={450} 
-                            className="rounded-lg object-contain max-h-[250px] sm:max-h-[350px]"
-                            priority={index === 0}
-                            referrerPolicy="no-referrer"
-                          />
-                        </div>
+                        {selectedProject.category === 'mobile' ? (
+                          /* Mobile Smartphone Mockup for Slides */
+                          <div className="flex items-center justify-center min-h-[340px] sm:min-h-[440px] py-4 select-none">
+                            <div className="relative w-[180px] sm:w-[200px] aspect-[9/18.5] bg-slate-950 dark:bg-black rounded-[36px] p-2 shadow-2xl border-[4px] border-slate-800 dark:border-slate-900 overflow-hidden flex flex-col">
+                              <div className="relative w-full h-full bg-white dark:bg-gray-950 rounded-[28px] overflow-hidden flex flex-col">
+                                <div className="absolute top-1.5 left-1/2 -translate-x-1/2 w-14 h-3.5 bg-black rounded-full z-20" />
+                                <div className="relative flex-grow bg-gray-50 dark:bg-gray-900">
+                                  <Image 
+                                    src={img} 
+                                    alt={`${selectedProject.name} slide ${index + 1}`} 
+                                    fill
+                                    className="object-cover object-top"
+                                    priority={index === 0}
+                                    referrerPolicy="no-referrer"
+                                  />
+                                </div>
+                                <div className="absolute bottom-1.5 left-1/2 -translate-x-1/2 w-16 h-1 bg-gray-300 dark:bg-gray-700 rounded-full z-20" />
+                              </div>
+                            </div>
+                          </div>
+                        ) : (
+                          /* Web Browser Mockup for Slides */
+                          <div className="flex items-center justify-center min-h-[250px] sm:min-h-[350px] p-2 sm:p-4 select-none">
+                            <div className="relative w-full max-w-[550px] bg-white dark:bg-gray-900 rounded-xl shadow-xl border border-gray-200 dark:border-gray-800 overflow-hidden flex flex-col">
+                              <div className="bg-gray-100 dark:bg-gray-800 px-4 py-2 flex items-center gap-1.5 border-b border-gray-250 dark:border-gray-755 shrink-0">
+                                <div className="flex gap-1.5 shrink-0">
+                                  <span className="w-2 rounded-full h-2 bg-rose-400"></span>
+                                  <span className="w-2 rounded-full h-2 bg-amber-400"></span>
+                                  <span className="w-2 rounded-full h-2 bg-emerald-400"></span>
+                                </div>
+                                <div className="bg-white dark:bg-gray-950 text-[10px] font-mono text-gray-400 dark:text-gray-500 px-3 py-1 rounded flex-grow text-center truncate ml-6 mr-1 select-none border border-gray-100 dark:border-gray-800/60">
+                                  https://{selectedProject.id}.fariz.dev
+                                </div>
+                              </div>
+                              <div className="relative aspect-[16/10] bg-gray-50 dark:bg-gray-950 overflow-hidden">
+                                <Image 
+                                  src={img} 
+                                  alt={`${selectedProject.name} slide ${index + 1}`} 
+                                  fill
+                                  className="object-cover object-top"
+                                  priority={index === 0}
+                                  referrerPolicy="no-referrer"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        )}
                       </SwiperSlide>
                     ))}
                   </Swiper>
