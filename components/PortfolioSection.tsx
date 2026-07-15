@@ -179,102 +179,66 @@ export default function PortfolioSection({ translations, language }: PortfolioSe
                       </div>
                     </div>
                   ) : (
-                    /* Web Showcase Mockup */
-                    <div className="w-full h-full relative flex items-center justify-center p-3 overflow-hidden select-none">
+                    /* Web Showcase Mockup (Premium MacBook Pro + Companion iPhone 15 Duo) */
+                    <div className="w-full h-full relative flex items-center justify-center p-4 overflow-hidden select-none">
                       {/* Background Gradient */}
                       <div className="absolute inset-0 bg-gradient-to-tr from-slate-100 to-indigo-50/40 dark:from-slate-900/60 dark:to-teal-950/20" />
                       
-                      {/* Left Back Browser Window */}
-                      <div className="absolute w-[72%] h-[65%] bg-white dark:bg-gray-900 rounded-lg shadow-md border border-gray-200/40 dark:border-gray-750/40 overflow-hidden flex flex-col transition-all duration-500 z-0 opacity-70 group-hover:opacity-90 [transform:perspective(1000px)_rotateX(14deg)_rotateY(-32deg)_rotateZ(4deg)_translate3d(-45px,-15px,-50px)] group-hover:[transform:perspective(1000px)_rotateX(14deg)_rotateY(-32deg)_rotateZ(4deg)_translate3d(-60px,-25px,-75px)]">
-                        <div className="bg-gray-100/70 dark:bg-gray-800/70 px-1.5 py-0.5 flex items-center gap-1 border-b border-gray-200/40 dark:border-gray-700/40 shrink-0">
-                          <div className="flex gap-0.5 shrink-0">
-                            <span className="w-1 h-1 rounded-full bg-rose-300"></span>
-                            <span className="w-1 h-1 rounded-full bg-amber-300"></span>
-                            <span className="w-1 h-1 rounded-full bg-emerald-300"></span>
-                          </div>
-                        </div>
-                        <div className="relative flex-grow bg-gray-50 dark:bg-gray-950 overflow-y-auto scrollbar-none">
-                          {project.id === 'eroses' ? (
-                            <img 
-                              src={project.images[1]?.src || project.mainImage?.src} 
-                              alt={`${project.name} back left`}
-                              className="w-full h-auto object-top"
-                              referrerPolicy="no-referrer"
-                            />
-                          ) : (
-                            <Image 
-                              src={project.images[1] || project.mainImage} 
-                              alt={`${project.name} back left`}
-                              fill
-                              sizes="(max-width: 768px) 70vw, 25vw"
-                              className="object-cover object-top"
-                              referrerPolicy="no-referrer"
-                            />
-                          )}
-                        </div>
-                      </div>
-
-                      {/* Right Back Browser Window */}
-                      <div className="absolute w-[72%] h-[65%] bg-white dark:bg-gray-900 rounded-lg shadow-lg border border-gray-200/40 dark:border-gray-750/40 overflow-hidden flex flex-col transition-all duration-500 z-10 opacity-85 group-hover:opacity-95 [transform:perspective(1000px)_rotateX(14deg)_rotateY(-32deg)_rotateZ(4deg)_translate3d(5px,0px,0px)] group-hover:[transform:perspective(1000px)_rotateX(14deg)_rotateY(-32deg)_rotateZ(4deg)_translate3d(5px,-5px,20px)]">
-                        <div className="bg-gray-100/70 dark:bg-gray-800/70 px-1.5 py-0.5 flex items-center gap-1 border-b border-gray-200/40 dark:border-gray-700/40 shrink-0">
-                          <div className="flex gap-0.5 shrink-0">
-                            <span className="w-1 h-1 rounded-full bg-rose-300"></span>
-                            <span className="w-1 h-1 rounded-full bg-amber-300"></span>
-                            <span className="w-1 h-1 rounded-full bg-emerald-300"></span>
-                          </div>
-                        </div>
-                        <div className="relative flex-grow bg-gray-50 dark:bg-gray-950 overflow-y-auto scrollbar-none">
-                          {project.id === 'eroses' ? (
-                            <img 
-                              src={project.images[2]?.src || project.images[0]?.src || project.mainImage?.src} 
-                              alt={`${project.name} back right`}
-                              className="w-full h-auto object-top"
-                              referrerPolicy="no-referrer"
-                            />
-                          ) : (
-                            <Image 
-                              src={project.images[2] || project.images[0] || project.mainImage} 
-                              alt={`${project.name} back right`}
-                              fill
-                              sizes="(max-width: 768px) 70vw, 25vw"
-                              className="object-cover object-top"
-                              referrerPolicy="no-referrer"
-                            />
-                          )}
-                        </div>
-                      </div>
-
-                      {/* Center Front Browser Window */}
-                      <div className="relative w-[76%] h-[68%] bg-white dark:bg-gray-900 rounded-lg shadow-xl border border-gray-200/60 dark:border-gray-700/60 overflow-hidden flex flex-col z-20 transition-all duration-500 [transform:perspective(1000px)_rotateX(14deg)_rotateY(-32deg)_rotateZ(4deg)_translate3d(55px,15px,50px)] group-hover:[transform:perspective(1000px)_rotateX(14deg)_rotateY(-32deg)_rotateZ(4deg)_translate3d(70px,25px,85px)]">
-                        <div className="bg-gray-100/80 dark:bg-gray-800/80 px-2 py-1 flex items-center gap-1 border-b border-gray-200/50 dark:border-gray-700/50 shrink-0">
-                          <div className="flex gap-1 shrink-0">
-                            <span className="w-1.5 h-1.5 rounded-full bg-rose-400"></span>
-                            <span className="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
-                            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-                          </div>
-                          <div className="bg-white/95 dark:bg-gray-950/95 text-[9px] sm:text-[10px] font-mono text-teal-600 dark:text-teal-400 font-semibold px-2 py-0.5 rounded flex-grow text-center truncate ml-3 mr-1 select-none border border-gray-100 dark:border-gray-800/50">
-                            https://{project.id}.fariz.dev
-                          </div>
-                        </div>
-                        <div className="relative flex-grow bg-gray-50 dark:bg-gray-950 overflow-y-auto scrollbar-none">
-                          {project.id === 'eroses' ? (
-                            <img 
-                              src={project.images[0]?.src || project.mainImage?.src} 
-                              alt={`${project.name} mockup main`}
-                              className="w-full h-auto object-top"
-                              referrerPolicy="no-referrer"
-                            />
-                          ) : (
+                      {/* Premium Device Group Shadow */}
+                      <div className="absolute bottom-4 left-[15%] w-[70%] h-6 bg-black/15 dark:bg-black/40 blur-xl rounded-full pointer-events-none z-0" />
+                      
+                      {/* MacBook Pro */}
+                      <div className="relative w-[78%] aspect-[16/10] flex flex-col items-center justify-start z-10 transition-all duration-500 transform group-hover:-translate-y-1.5 group-hover:scale-[1.015]">
+                        {/* Laptop Screen Frame with thin bezels */}
+                        <div className="w-full aspect-[16/10.15] bg-zinc-800 dark:bg-zinc-900 rounded-t-[14px] p-[5px] sm:p-[6px] shadow-2xl border border-zinc-950/30 relative flex flex-col justify-between overflow-hidden">
+                          {/* Built-in webcam notch */}
+                          <div className="absolute top-1 left-1/2 -translate-x-1/2 w-8 h-1.5 sm:w-10 sm:h-2 bg-black rounded-b-[4px] z-30" />
+                          
+                          {/* Display Panel */}
+                          <div className="relative w-full h-full bg-black rounded-[8px] overflow-hidden">
                             <Image 
                               src={project.images[0] || project.mainImage} 
-                              alt={`${project.name} mockup main`}
+                              alt={`${project.name} web screenshot`}
                               fill
-                              sizes="(max-width: 768px) 80vw, 30vw"
+                              sizes="(max-width: 768px) 70vw, 25vw"
                               className="object-cover object-top"
                               referrerPolicy="no-referrer"
                             />
-                          )}
-                          <div className="absolute inset-0 bg-black/5 dark:bg-white/0 group-hover:bg-black/0 transition-colors duration-300 pointer-events-none" />
+                            
+                            {/* Realistic glossy sheen */}
+                            <div className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/5 to-white/12 pointer-events-none z-20" />
+                          </div>
+                        </div>
+                        
+                        {/* Keyboard Deck & Chassis Profile */}
+                        <div className="w-[114%] h-[7px] sm:h-[9px] bg-gradient-to-b from-zinc-200 to-zinc-400 dark:from-zinc-700 dark:to-zinc-800 rounded-b-[4px] relative border-t border-white/25 dark:border-zinc-600/30 shadow-md">
+                          {/* Open indent */}
+                          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-10 sm:w-12 h-[2.5px] bg-zinc-400 dark:bg-zinc-900 rounded-b-sm" />
+                        </div>
+                      </div>
+                      
+                      {/* Companion iPhone 15 Sidekick (Floating Brand Identity) */}
+                      <div className="absolute right-[5%] bottom-[12%] w-[68px] sm:w-[82px] aspect-[9/19.5] bg-zinc-900 dark:bg-zinc-950 rounded-[14px] sm:rounded-[17px] p-[2.5px] sm:p-[3px] shadow-[0_20px_40px_-8px_rgba(0,0,0,0.45)] border border-zinc-950 dark:border-zinc-800/80 overflow-hidden flex flex-col z-20 transition-all duration-500 transform group-hover:translate-x-1.5 group-hover:-translate-y-2.5 group-hover:scale-[1.06] group-hover:shadow-[0_25px_50px_-10px_rgba(0,0,0,0.55)]">
+                        <div className="relative w-full h-full bg-white rounded-[11.5px] sm:rounded-[14px] overflow-hidden flex items-center justify-center p-2.5 sm:p-3 select-none">
+                          {/* Realistic mini Dynamic Island */}
+                          <div className="absolute top-1.5 left-1/2 -translate-x-1/2 w-4.5 sm:w-6 h-1.5 sm:h-2 bg-black rounded-full z-40" />
+                          
+                          {/* Client Logo Image */}
+                          <div className="relative w-full h-full flex items-center justify-center">
+                            <Image 
+                              src={project.mainImage} 
+                              alt={`${project.name} client logo`}
+                              fill
+                              sizes="(max-width: 768px) 30vw, 10vw"
+                              className="object-contain p-0.5"
+                              referrerPolicy="no-referrer"
+                            />
+                          </div>
+                          
+                          {/* Reflection overlay */}
+                          <div className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/5 to-white/10 pointer-events-none z-30" />
+                          {/* Home indicator bar */}
+                          <div className="absolute bottom-[2px] left-1/2 -translate-x-1/2 w-5 sm:w-6 h-[1.5px] bg-zinc-400 rounded-full z-40" />
                         </div>
                       </div>
                     </div>
@@ -421,23 +385,15 @@ export default function PortfolioSection({ translations, language }: PortfolioSe
                                 </div>
                               </div>
                               <div className="relative aspect-[16/10] bg-gray-50 dark:bg-gray-950 overflow-y-auto max-h-[350px] sm:max-h-[450px] scrollbar-thin">
-                                {selectedProject.id === 'eroses' ? (
-                                  <img 
-                                    src={img.src} 
-                                    alt={`${selectedProject.name} slide ${index + 1}`} 
-                                    className="w-full h-auto object-top"
-                                    referrerPolicy="no-referrer"
-                                  />
-                                ) : (
-                                  <Image 
-                                    src={img} 
-                                    alt={`${selectedProject.name} slide ${index + 1}`} 
-                                    fill
-                                    className="object-cover object-top"
-                                    priority={index === 0}
-                                    referrerPolicy="no-referrer"
-                                  />
-                                )}
+                                <Image 
+                                  src={img} 
+                                  alt={`${selectedProject.name} slide ${index + 1}`} 
+                                  width={img.width || 1200}
+                                  height={img.height || 800}
+                                  className="w-full h-auto object-top"
+                                  priority={index === 0}
+                                  referrerPolicy="no-referrer"
+                                />
                               </div>
                             </div>
                           </div>
