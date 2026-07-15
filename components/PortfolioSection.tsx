@@ -92,59 +92,89 @@ export default function PortfolioSection({ translations, language }: PortfolioSe
                 className="bg-white dark:bg-gray-800 rounded-2xl shadow-sm hover:shadow-xl border border-gray-100 dark:border-gray-750 overflow-hidden transition-all duration-300 flex flex-col justify-between group h-full"
               >
                 {/* Image Wrap (Web vs Mobile Showcase Mockup) */}
-                <div className="relative h-56 sm:h-64 w-full bg-gray-50 dark:bg-gray-900 flex items-center justify-center border-b border-gray-100 dark:border-gray-700/50 overflow-hidden">
+                <div className="relative h-60 sm:h-72 w-full bg-gray-50 dark:bg-gray-900 flex items-center justify-center border-b border-gray-100 dark:border-gray-700/50 overflow-hidden">
                   {project.category === 'mobile' ? (
-                    /* Mobile Showcase Mockup */
-                    <div className="w-full h-full relative flex items-center justify-center p-3 overflow-hidden select-none">
+                    /* Mobile Showcase Mockup with Premium 3D Perspective Floating Phones */
+                    <div className="w-full h-full relative flex items-center justify-center p-4 overflow-hidden select-none">
                       {/* Background Gradient */}
                       <div className="absolute inset-0 bg-gradient-to-tr from-slate-100 to-teal-50/40 dark:from-slate-900/60 dark:to-cyan-950/20" />
                       
-                      {/* Left Screen (Back) */}
-                      <div className="absolute w-[80px] sm:w-[90px] aspect-[9/18.5] bg-slate-950 dark:bg-black rounded-[14px] p-0.5 shadow-md border border-slate-800 dark:border-slate-900 overflow-hidden flex flex-col transition-all duration-500 transform -translate-x-12 rotate-[-12deg] z-0 opacity-80 group-hover:-translate-x-16 group-hover:rotate-[-18deg] group-hover:opacity-90">
-                        <div className="relative w-full h-full bg-white dark:bg-gray-950 rounded-[11px] overflow-hidden">
+                      {/* Premium Device Shadow */}
+                      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 w-[75%] h-6 bg-black/15 dark:bg-black/35 blur-xl rounded-full pointer-events-none z-0" />
+                      
+                      {/* Left Screen (Angled inward) */}
+                      <div className="absolute w-[80px] sm:w-[90px] aspect-[9/19.5] bg-zinc-900 dark:bg-zinc-950 rounded-[18px] sm:rounded-[20px] p-[2.5px] sm:p-[3px] shadow-lg border border-zinc-950 dark:border-zinc-800/80 overflow-hidden flex flex-col transition-all duration-500 z-10 [transform:perspective(1000px)_rotateY(20deg)_rotateX(3deg)_rotateZ(-2deg)_translate3d(-46px,0px,-10px)] group-hover:[transform:perspective(1000px)_rotateY(24deg)_rotateX(5deg)_rotateZ(-3deg)_translate3d(-54px,2px,-15px)]">
+                        <div className="relative w-full h-full bg-black rounded-[15.5px] sm:rounded-[17.5px] overflow-hidden">
+                          {/* Screen Image (Extends fully) */}
                           <Image 
                             src={project.images[1] || project.mainImage} 
-                            alt={`${project.name} mobile background 1`}
+                            alt={`${project.name} mobile background left`}
                             fill
-                            sizes="(max-width: 768px) 50vw, 15vw"
+                            sizes="(max-width: 768px) 33vw, 10vw"
                             className="object-cover object-top"
                             referrerPolicy="no-referrer"
                           />
+                          
+                          {/* Realistic Dynamic Island for iPhone 15 */}
+                          <div className="absolute top-1.5 sm:top-2 left-1/2 -translate-x-1/2 w-5 sm:w-6 h-1.5 sm:h-2 bg-black rounded-full z-40" />
+                          
+                          {/* Glossy reflection */}
+                          <div className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/5 to-white/10 pointer-events-none z-30" />
+                          
+                          {/* Home indicator bar */}
+                          <div className="absolute bottom-1 left-1/2 -translate-x-1/2 w-6 h-0.5 bg-white/50 rounded-full z-40" />
                         </div>
                       </div>
 
-                      {/* Right Screen (Back) */}
-                      <div className="absolute w-[80px] sm:w-[90px] aspect-[9/18.5] bg-slate-950 dark:bg-black rounded-[14px] p-0.5 shadow-md border border-slate-800 dark:border-slate-900 overflow-hidden flex flex-col transition-all duration-500 transform translate-x-12 rotate-[12deg] z-0 opacity-80 group-hover:translate-x-16 group-hover:rotate-[18deg] group-hover:opacity-90">
-                        <div className="relative w-full h-full bg-white dark:bg-gray-950 rounded-[11px] overflow-hidden">
+                      {/* Right Screen (Angled inward) */}
+                      <div className="absolute w-[80px] sm:w-[90px] aspect-[9/19.5] bg-zinc-900 dark:bg-zinc-950 rounded-[18px] sm:rounded-[20px] p-[2.5px] sm:p-[3px] shadow-lg border border-zinc-950 dark:border-zinc-800/80 overflow-hidden flex flex-col transition-all duration-500 z-10 [transform:perspective(1000px)_rotateY(-20deg)_rotateX(3deg)_rotateZ(2deg)_translate3d(46px,0px,-10px)] group-hover:[transform:perspective(1000px)_rotateY(-24deg)_rotateX(5deg)_rotateZ(3deg)_translate3d(54px,2px,-15px)]">
+                        <div className="relative w-full h-full bg-black rounded-[15.5px] sm:rounded-[17.5px] overflow-hidden">
+                          {/* Screen Image (Extends fully) */}
                           <Image 
                             src={project.images[2] || project.images[0] || project.mainImage} 
-                            alt={`${project.name} mobile background 2`}
+                            alt={`${project.name} mobile background right`}
+                            fill
+                            sizes="(max-width: 768px) 33vw, 10vw"
+                            className="object-cover object-top"
+                            referrerPolicy="no-referrer"
+                          />
+                          
+                          {/* Realistic Dynamic Island for iPhone 15 */}
+                          <div className="absolute top-1.5 sm:top-2 left-1/2 -translate-x-1/2 w-5 sm:w-6 h-1.5 sm:h-2 bg-black rounded-full z-40" />
+                          
+                          {/* Glossy reflection */}
+                          <div className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/5 to-white/10 pointer-events-none z-30" />
+                          
+                          {/* Home indicator bar */}
+                          <div className="absolute bottom-1 left-1/2 -translate-x-1/2 w-6 h-0.5 bg-white/50 rounded-full z-40" />
+                        </div>
+                      </div>
+
+                      {/* Center Screen (Front & Main, elevated) */}
+                      <div className="relative w-[90px] sm:w-[100px] aspect-[9/19.5] bg-zinc-900 dark:bg-zinc-950 rounded-[20px] sm:rounded-[22px] p-[3px] sm:p-[4px] shadow-2xl border-[1.5px] sm:border-[2px] border-zinc-950 dark:border-zinc-800 overflow-hidden flex flex-col transition-all duration-500 z-20 [transform:perspective(1000px)_rotateY(0deg)_rotateX(0deg)_rotateZ(0deg)_translate3d(0px,0px,15px)] group-hover:[transform:perspective(1000px)_rotateY(0deg)_rotateX(2deg)_rotateZ(0deg)_translate3d(0px,-4px,25px)] group-hover:shadow-[0_20px_40px_-10px_rgba(0,0,0,0.45)]">
+                        <div className="relative w-full h-full bg-black rounded-[17px] sm:rounded-[19px] overflow-hidden">
+                          {/* Screen Image (Extends fully) */}
+                          <Image 
+                            src={project.images[0] || project.mainImage} 
+                            alt={`${project.name} mobile mockup`}
                             fill
                             sizes="(max-width: 768px) 50vw, 15vw"
                             className="object-cover object-top"
                             referrerPolicy="no-referrer"
                           />
-                        </div>
-                      </div>
-
-                      {/* Center Screen (Front) */}
-                      <div className="relative w-[105px] sm:w-[115px] aspect-[9/18.5] bg-slate-950 dark:bg-black rounded-[18px] p-1 shadow-2xl border-[2px] border-slate-800 dark:border-slate-900 overflow-hidden flex flex-col z-10 transform transition-all duration-500 group-hover:scale-[1.06] group-hover:-translate-y-1.5">
-                        <div className="relative w-full h-full bg-white dark:bg-gray-950 rounded-[14px] overflow-hidden flex flex-col">
-                          {/* Notch / Speaker bar */}
-                          <div className="absolute top-1 left-1/2 -translate-x-1/2 w-8 h-2 bg-black rounded-full z-20" />
-                          <div className="relative flex-grow bg-gray-50 dark:bg-gray-900">
-                            <Image 
-                              src={project.images[0] || project.mainImage} 
-                              alt={`${project.name} mobile mockup`}
-                              fill
-                              sizes="(max-width: 768px) 50vw, 20vw"
-                              className="object-cover object-top"
-                              referrerPolicy="no-referrer"
-                            />
-                            <div className="absolute inset-0 bg-black/5 dark:bg-white/0 group-hover:bg-black/0 transition-colors duration-300" />
+                          
+                          {/* Realistic Dynamic Island for iPhone 15 */}
+                          <div className="absolute top-1.5 sm:top-2 left-1/2 -translate-x-1/2 w-6 sm:w-7 h-2 sm:h-2.5 bg-black rounded-full z-40 flex items-center justify-between px-1.5">
+                            {/* Micro lens reflection points */}
+                            <div className="w-0.5 h-0.5 rounded-full bg-blue-900/40 opacity-70" />
+                            <div className="w-1 h-1 rounded-full bg-zinc-900 border-[0.5px] border-emerald-500/30" />
                           </div>
+                          
+                          {/* Glossy reflection */}
+                          <div className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/5 to-white/15 pointer-events-none z-30" />
+                          
                           {/* Home indicator bar */}
-                          <div className="absolute bottom-1 left-1/2 -translate-x-1/2 w-10 h-0.5 bg-gray-300 dark:bg-gray-700 rounded-full z-20" />
+                          <div className="absolute bottom-1.5 left-1/2 -translate-x-1/2 w-8 h-0.5 bg-white/60 rounded-full z-40" />
                         </div>
                       </div>
                     </div>
@@ -155,7 +185,7 @@ export default function PortfolioSection({ translations, language }: PortfolioSe
                       <div className="absolute inset-0 bg-gradient-to-tr from-slate-100 to-indigo-50/40 dark:from-slate-900/60 dark:to-teal-950/20" />
                       
                       {/* Left Back Browser Window */}
-                      <div className="absolute w-[75%] h-[68%] bg-white dark:bg-gray-900 rounded-lg shadow-sm border border-gray-250/40 dark:border-gray-750/40 overflow-hidden flex flex-col transition-all duration-500 transform -translate-x-8 translate-y-3 -rotate-4 z-0 opacity-70 group-hover:-translate-x-12 group-hover:translate-y-5 group-hover:-rotate-8 group-hover:opacity-85">
+                      <div className="absolute w-[72%] h-[65%] bg-white dark:bg-gray-900 rounded-lg shadow-md border border-gray-200/40 dark:border-gray-750/40 overflow-hidden flex flex-col transition-all duration-500 z-0 opacity-70 group-hover:opacity-90 [transform:perspective(1000px)_rotateX(14deg)_rotateY(-32deg)_rotateZ(4deg)_translate3d(-45px,-15px,-50px)] group-hover:[transform:perspective(1000px)_rotateX(14deg)_rotateY(-32deg)_rotateZ(4deg)_translate3d(-60px,-25px,-75px)]">
                         <div className="bg-gray-100/70 dark:bg-gray-800/70 px-1.5 py-0.5 flex items-center gap-1 border-b border-gray-200/40 dark:border-gray-700/40 shrink-0">
                           <div className="flex gap-0.5 shrink-0">
                             <span className="w-1 h-1 rounded-full bg-rose-300"></span>
@@ -185,7 +215,7 @@ export default function PortfolioSection({ translations, language }: PortfolioSe
                       </div>
 
                       {/* Right Back Browser Window */}
-                      <div className="absolute w-[75%] h-[68%] bg-white dark:bg-gray-900 rounded-lg shadow-sm border border-gray-250/40 dark:border-gray-750/40 overflow-hidden flex flex-col transition-all duration-500 transform translate-x-8 translate-y-3 rotate-4 z-0 opacity-70 group-hover:translate-x-12 group-hover:translate-y-5 group-hover:rotate-8 group-hover:opacity-85">
+                      <div className="absolute w-[72%] h-[65%] bg-white dark:bg-gray-900 rounded-lg shadow-lg border border-gray-200/40 dark:border-gray-750/40 overflow-hidden flex flex-col transition-all duration-500 z-10 opacity-85 group-hover:opacity-95 [transform:perspective(1000px)_rotateX(14deg)_rotateY(-32deg)_rotateZ(4deg)_translate3d(5px,0px,0px)] group-hover:[transform:perspective(1000px)_rotateX(14deg)_rotateY(-32deg)_rotateZ(4deg)_translate3d(5px,-5px,20px)]">
                         <div className="bg-gray-100/70 dark:bg-gray-800/70 px-1.5 py-0.5 flex items-center gap-1 border-b border-gray-200/40 dark:border-gray-700/40 shrink-0">
                           <div className="flex gap-0.5 shrink-0">
                             <span className="w-1 h-1 rounded-full bg-rose-300"></span>
@@ -215,7 +245,7 @@ export default function PortfolioSection({ translations, language }: PortfolioSe
                       </div>
 
                       {/* Center Front Browser Window */}
-                      <div className="relative w-[82%] h-[74%] bg-white dark:bg-gray-900 rounded-lg shadow-xl border border-gray-250/60 dark:border-gray-700/60 overflow-hidden flex flex-col z-10 transition-all duration-500 transform group-hover:scale-[1.04] group-hover:-translate-y-1">
+                      <div className="relative w-[76%] h-[68%] bg-white dark:bg-gray-900 rounded-lg shadow-xl border border-gray-200/60 dark:border-gray-700/60 overflow-hidden flex flex-col z-20 transition-all duration-500 [transform:perspective(1000px)_rotateX(14deg)_rotateY(-32deg)_rotateZ(4deg)_translate3d(55px,15px,50px)] group-hover:[transform:perspective(1000px)_rotateX(14deg)_rotateY(-32deg)_rotateZ(4deg)_translate3d(70px,25px,85px)]">
                         <div className="bg-gray-100/80 dark:bg-gray-800/80 px-2 py-1 flex items-center gap-1 border-b border-gray-200/50 dark:border-gray-700/50 shrink-0">
                           <div className="flex gap-1 shrink-0">
                             <span className="w-1.5 h-1.5 rounded-full bg-rose-400"></span>

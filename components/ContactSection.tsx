@@ -123,9 +123,13 @@ export default function ContactSection({ translations, language }: ContactSectio
         </div>
 
         {/* Global Location indicator */}
-        <div className="mt-12 text-center flex items-center justify-center gap-2 text-sm text-gray-400 dark:text-gray-500 font-mono">
-          <FaMapMarkerAlt className="text-teal-500" />
-          <span>Bandung, West Java, Indonesia • {language === 'en' ? 'GMT+7 Timezone' : 'Zona Waktu WIB'}</span>
+        <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-1.5 sm:gap-2 text-xs sm:text-sm text-gray-400 dark:text-gray-500 font-mono text-center">
+          <div className="flex items-center gap-1.5 justify-center">
+            <FaMapMarkerAlt className="text-teal-500 shrink-0" />
+            <span>Bandung, West Java, Indonesia</span>
+          </div>
+          <span className="hidden sm:inline text-teal-500/40">•</span>
+          <span>{language === 'en' ? 'GMT+7 Timezone' : 'Zona Waktu WIB'}</span>
         </div>
 
       </div>

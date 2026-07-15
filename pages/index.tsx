@@ -56,7 +56,7 @@ export default function Home() {
       setTimeout(() => {
         setLoading(false);
       }, 1000); // Time for fade out effect
-    }, 1200);
+    }, 3500);
 
     return () => clearTimeout(timer);
   }, []);
