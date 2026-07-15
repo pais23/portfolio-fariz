@@ -13,6 +13,7 @@ import WorkflowSection from '@/components/WorkflowSection';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
 import LoadingScreen from '@/components/LoadingScreen';
+import PixieDust from '@/components/PixieDust';
 
 // Import translations
 import { translations } from '@/utils/translations';
@@ -132,6 +133,9 @@ export default function Home() {
           translations={translations} 
           language={language} 
         />
+
+        {/* Pixie Dust Cursor Trailing Particles */}
+        <PixieDust />
         
         {/* Header with Navigation */}
         <Header 

@@ -163,15 +163,24 @@ export default function PortfolioSection({ translations, language }: PortfolioSe
                             <span className="w-1 h-1 rounded-full bg-emerald-300"></span>
                           </div>
                         </div>
-                        <div className="relative flex-grow bg-gray-50 dark:bg-gray-950 overflow-hidden">
-                          <Image 
-                            src={project.images[1] || project.mainImage} 
-                            alt={`${project.name} back left`}
-                            fill
-                            sizes="(max-width: 768px) 70vw, 25vw"
-                            className="object-cover object-top"
-                            referrerPolicy="no-referrer"
-                          />
+                        <div className="relative flex-grow bg-gray-50 dark:bg-gray-950 overflow-y-auto scrollbar-none">
+                          {project.id === 'eroses' ? (
+                            <img 
+                              src={project.images[1]?.src || project.mainImage?.src} 
+                              alt={`${project.name} back left`}
+                              className="w-full h-auto object-top"
+                              referrerPolicy="no-referrer"
+                            />
+                          ) : (
+                            <Image 
+                              src={project.images[1] || project.mainImage} 
+                              alt={`${project.name} back left`}
+                              fill
+                              sizes="(max-width: 768px) 70vw, 25vw"
+                              className="object-cover object-top"
+                              referrerPolicy="no-referrer"
+                            />
+                          )}
                         </div>
                       </div>
 
@@ -184,15 +193,24 @@ export default function PortfolioSection({ translations, language }: PortfolioSe
                             <span className="w-1 h-1 rounded-full bg-emerald-300"></span>
                           </div>
                         </div>
-                        <div className="relative flex-grow bg-gray-50 dark:bg-gray-950 overflow-hidden">
-                          <Image 
-                            src={project.images[2] || project.images[0] || project.mainImage} 
-                            alt={`${project.name} back right`}
-                            fill
-                            sizes="(max-width: 768px) 70vw, 25vw"
-                            className="object-cover object-top"
-                            referrerPolicy="no-referrer"
-                          />
+                        <div className="relative flex-grow bg-gray-50 dark:bg-gray-950 overflow-y-auto scrollbar-none">
+                          {project.id === 'eroses' ? (
+                            <img 
+                              src={project.images[2]?.src || project.images[0]?.src || project.mainImage?.src} 
+                              alt={`${project.name} back right`}
+                              className="w-full h-auto object-top"
+                              referrerPolicy="no-referrer"
+                            />
+                          ) : (
+                            <Image 
+                              src={project.images[2] || project.images[0] || project.mainImage} 
+                              alt={`${project.name} back right`}
+                              fill
+                              sizes="(max-width: 768px) 70vw, 25vw"
+                              className="object-cover object-top"
+                              referrerPolicy="no-referrer"
+                            />
+                          )}
                         </div>
                       </div>
 
@@ -204,20 +222,29 @@ export default function PortfolioSection({ translations, language }: PortfolioSe
                             <span className="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
                             <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
                           </div>
-                          <div className="bg-white/95 dark:bg-gray-950/95 text-[7px] font-mono text-gray-400 dark:text-gray-500 px-2 py-0.5 rounded flex-grow text-center truncate ml-3 mr-1 select-none border border-gray-100 dark:border-gray-800/50">
+                          <div className="bg-white/95 dark:bg-gray-950/95 text-[9px] sm:text-[10px] font-mono text-teal-600 dark:text-teal-400 font-semibold px-2 py-0.5 rounded flex-grow text-center truncate ml-3 mr-1 select-none border border-gray-100 dark:border-gray-800/50">
                             https://{project.id}.fariz.dev
                           </div>
                         </div>
-                        <div className="relative flex-grow bg-gray-50 dark:bg-gray-950 overflow-hidden">
-                          <Image 
-                            src={project.images[0] || project.mainImage} 
-                            alt={`${project.name} mockup main`}
-                            fill
-                            sizes="(max-width: 768px) 80vw, 30vw"
-                            className="object-cover object-top"
-                            referrerPolicy="no-referrer"
-                          />
-                          <div className="absolute inset-0 bg-black/5 dark:bg-white/0 group-hover:bg-black/0 transition-colors duration-300" />
+                        <div className="relative flex-grow bg-gray-50 dark:bg-gray-950 overflow-y-auto scrollbar-none">
+                          {project.id === 'eroses' ? (
+                            <img 
+                              src={project.images[0]?.src || project.mainImage?.src} 
+                              alt={`${project.name} mockup main`}
+                              className="w-full h-auto object-top"
+                              referrerPolicy="no-referrer"
+                            />
+                          ) : (
+                            <Image 
+                              src={project.images[0] || project.mainImage} 
+                              alt={`${project.name} mockup main`}
+                              fill
+                              sizes="(max-width: 768px) 80vw, 30vw"
+                              className="object-cover object-top"
+                              referrerPolicy="no-referrer"
+                            />
+                          )}
+                          <div className="absolute inset-0 bg-black/5 dark:bg-white/0 group-hover:bg-black/0 transition-colors duration-300 pointer-events-none" />
                         </div>
                       </div>
                     </div>
@@ -359,19 +386,28 @@ export default function PortfolioSection({ translations, language }: PortfolioSe
                                   <span className="w-2 rounded-full h-2 bg-amber-400"></span>
                                   <span className="w-2 rounded-full h-2 bg-emerald-400"></span>
                                 </div>
-                                <div className="bg-white dark:bg-gray-950 text-[10px] font-mono text-gray-400 dark:text-gray-500 px-3 py-1 rounded flex-grow text-center truncate ml-6 mr-1 select-none border border-gray-100 dark:border-gray-800/60">
+                                <div className="bg-white dark:bg-gray-950 text-xs font-mono text-teal-600 dark:text-teal-400 font-semibold px-3 py-1 rounded flex-grow text-center truncate ml-6 mr-1 select-none border border-gray-100 dark:border-gray-800/60">
                                   https://{selectedProject.id}.fariz.dev
                                 </div>
                               </div>
-                              <div className="relative aspect-[16/10] bg-gray-50 dark:bg-gray-950 overflow-hidden">
-                                <Image 
-                                  src={img} 
-                                  alt={`${selectedProject.name} slide ${index + 1}`} 
-                                  fill
-                                  className="object-cover object-top"
-                                  priority={index === 0}
-                                  referrerPolicy="no-referrer"
-                                />
+                              <div className="relative aspect-[16/10] bg-gray-50 dark:bg-gray-950 overflow-y-auto max-h-[350px] sm:max-h-[450px] scrollbar-thin">
+                                {selectedProject.id === 'eroses' ? (
+                                  <img 
+                                    src={img.src} 
+                                    alt={`${selectedProject.name} slide ${index + 1}`} 
+                                    className="w-full h-auto object-top"
+                                    referrerPolicy="no-referrer"
+                                  />
+                                ) : (
+                                  <Image 
+                                    src={img} 
+                                    alt={`${selectedProject.name} slide ${index + 1}`} 
+                                    fill
+                                    className="object-cover object-top"
+                                    priority={index === 0}
+                                    referrerPolicy="no-referrer"
+                                  />
+                                )}
                               </div>
                             </div>
                           </div>

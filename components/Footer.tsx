@@ -51,14 +51,14 @@ export default function Footer({ translations, language }: FooterProps) {
               <AiFillInstagram />
             </a>
             <a 
-              href="mailto:fariznurmasyhuri23@gmail.com" 
+              href="mailto:sendme.fariz@gmail.com" 
               aria-label="Send Direct Email"
               className="hover:text-teal-600 dark:hover:text-teal-400 hover:scale-110 transition-all duration-200"
             >
               <FaEnvelope className="text-lg" />
             </a>
             <a 
-              href="tel:+6282249141773" 
+              href="tel:+6281221576662" 
               aria-label="Call Mobile Phone"
               className="hover:text-teal-600 dark:hover:text-teal-400 hover:scale-110 transition-all duration-200"
             >

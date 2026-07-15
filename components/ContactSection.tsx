@@ -12,8 +12,8 @@ export default function ContactSection({ translations, language }: ContactSectio
 
   const t = (key: string) => translations[language][key] || key;
 
-  const emailAddress = "fariznurmasyhuri23@gmail.com";
-  const phoneNumber = "+62 822-4914-1773";
+  const emailAddress = "sendme.fariz@gmail.com";
+  const phoneNumber = "+6281221576662";
 
   const copyToClipboard = (text: string, type: 'email' | 'phone') => {
     navigator.clipboard.writeText(text);

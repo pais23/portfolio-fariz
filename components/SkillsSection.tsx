@@ -72,7 +72,7 @@ export default function SkillsSection({ translations, language }: SkillsSectionP
   ];
 
   return (
-    <section id="skills" className="bg-gray-50 dark:bg-gray-900/50 py-20 sm:py-32 border-y border-gray-100 dark:border-gray-800">
+    <section id="skills" className="bg-gray-50 dark:bg-gray-850/40 py-20 sm:py-32 border-y border-gray-100 dark:border-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}

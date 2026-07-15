@@ -125,7 +125,7 @@ export default function StatisticsSection({ translations, language }: Statistics
   ];
 
   return (
-    <section className="bg-gray-50 dark:bg-gray-900/50 py-20 sm:py-28 border-b border-gray-100 dark:border-gray-800">
+    <section className="bg-gray-50 dark:bg-gray-850/40 py-20 sm:py-28 border-b border-gray-100 dark:border-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}

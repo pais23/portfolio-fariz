@@ -486,8 +486,7 @@ export const detailedProjects: DetailedProject[] = [
     },
     mainImage: logoWardah,
     images: [image_wardah1, image_wardah2, image_wardah3, image_wardah4, image_wardah5, image_wardah6, image_wardah7, image_wardah8],
-    iconKey: "react",
-    category: "mobile"
+    iconKey: "react"
   },
   {
     id: "portal",

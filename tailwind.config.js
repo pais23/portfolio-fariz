@@ -15,6 +15,16 @@ module.exports = {
       fontFamily: {
         burtons: 'burtons',
       },
+      colors: {
+        gray: {
+          150: '#ebedf0',
+          250: '#dadde2',
+          450: '#858a96',
+          750: '#2b3544',
+          755: '#293241',
+          850: '#1b2431',
+        },
+      },
     },
   },
   plugins: [],
